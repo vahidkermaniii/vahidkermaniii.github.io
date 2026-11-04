@@ -533,6 +533,56 @@ a{text-decoration:none;color:inherit}
   .certs-grid{grid-template-columns:1fr}
   .courses-grid{grid-template-columns:1fr}
 }
+
+/* اصلاح یکپارچه تایپوگرافی فارسی و چیدمان واکنش‌گرا */
+html { text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body { overflow-wrap: break-word; }
+.hero-inner > *, .about-grid > *, .services-grid > *,
+.contact-methods > *, .grid > * { min-width: 0; }
+
+/* تراز دوطرفه فقط برای متن‌های توضیحی؛ نه عنوان‌ها و دکمه‌ها */
+.hero-text p, .about-text p, .about-text .quote,
+.section-head p, .about-card p, .service-card p,
+.skill-circle p, .timeline-card p, .course-card p,
+.testi-card p, .faq-a, .contact-method .cm-body p {
+  text-align: justify;
+  text-align-last: right;
+  text-justify: inter-word;
+  text-wrap: pretty;
+  direction: rtl;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* بهبود خوانایی، جلوگیری از تک‌واژه در خط پایانی و فواصل نامتناسب */
+.hero-text p, .about-text p, .about-text .quote {
+  line-height: 2.05;
+}
+.section-head p { margin-inline: auto; }
+.hero-text p { max-width: 650px; }
+
+/* عنوان‌ها بهتر است دوطرفه نشوند */
+h1, h2, h3, h4, .badge, .nav-links, .hero-stats-mini,
+.stat-box, .tags, .course-meta, .footer-bottom {
+  text-align: start;
+}
+.section-head h2, .section-head .eyebrow,
+.contact-hero h2, .contact-hero .eyebrow { text-align: center; }
+
+/* در صفحه‌های باریک، متن‌های کوتاه کشیده و نامنظم نشوند */
+@media (max-width: 600px) {
+  .hero-text p, .about-text p, .about-text .quote,
+  .section-head p, .about-card p, .service-card p,
+  .skill-circle p, .timeline-card p, .course-card p,
+  .testi-card p, .faq-a, .contact-method .cm-body p {
+    text-align: right;
+    text-wrap: pretty;
+  }
+  .hero-inner, .about-grid { min-width: 0; }
+  .hero-text p { max-width: 100%; }
+}
+
 </style>
 </head>
 <body>
